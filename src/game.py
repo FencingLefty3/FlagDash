@@ -8,7 +8,7 @@ First = True
 SRCDir = Path(__file__).parent.resolve()
 levels = SRCDir / "levels.json"
 
-def runLevel(Title, question, answers, hints=(), case_sensitive=False, run=False, check=None):
+def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False, run=False, check=None):
     global First
     
     if First is False:
@@ -28,6 +28,9 @@ def runLevel(Title, question, answers, hints=(), case_sensitive=False, run=False
     print(f"== {Title} ==")
     print(f"{question}\n")
 
+    if setup:
+        subprocess.run(setup, shell=True)
+
     norm = (lambda s: s.strip()) if case_sensitive else (lambda s: s.strip().lower())
     accepted = {norm(a) for a in answers}
     hintsUsed = 0
@@ -40,7 +43,25 @@ def runLevel(Title, question, answers, hints=(), case_sensitive=False, run=False
             return(False)
 
         cmd = responce.strip().lower()
-
+        if cmd == "clear":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            
+            logo = r"""
+            
+          ▀▀▀▀▀ ▀     ▀▀▀▄  ▀▀▀▀▀
+▀▀▀▀ ▀▀▀▀ ▄ ▀▀  █     ▄ ▀▀█ ▄ ▀▀█
+          █      ▀▄▄▄ ▀   ▀  ▀▄▄▀ 
+                        
+            """
+            
+            print(f"{logo}") 
+            time.sleep(.5)
+            print(f"== {Title} ==")
+            print(f"{question}\n")
+            continue
+        if cmd == "help":
+            print("For a Hint, respond 'hint'.\nTo reset the question,'reset' For these keywords, 'help'\nTo Close, 'quit' or 'exit'.\n")
+            continue
         if cmd in ("quit", "exit"):
             return False
         if cmd == "hint":
@@ -84,7 +105,7 @@ def run():
 
     print(f"{logo}") 
     time.sleep(.5)
-    print("For a Hint, respond 'hint'.\nTo Close, 'quit' or 'exit'.\n")
+    print("For a Hint, respond 'hint'.\nTo reset the question,'reset' For these keywords, 'help'\nTo Close, 'quit' or 'exit'.\n")
 
     with open(levels, "r", encoding="utf-8") as f:
         LEVELS = json.load(f)

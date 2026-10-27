@@ -1,9 +1,9 @@
 [
     {
-        "Title": "Level 1 // Directory?",
-        "question": "Installing some minercaft mods from here?",
-        "answers": ["cd %appdata%"],
-        "hints": ["cd","run"]
+        "Title": "Level 1 // A slashing start.",
+        "question": "Move down the load!",
+        "answers": ["cd ~/downloads"],
+        "hints": ["cd","squiggle!"]
     },
     {
         "Title": "Level 2 // console.Log",
@@ -19,20 +19,50 @@
     },
     {
         "Title": "Level 4 // You know this.",
-        "question": "Making it is no good if we can use it.",
+        "question": "Making it is no good if we can't use it.",
         "answers": ["cd new"],
         "hints": ["How did we get here?", "back to basics", "the first one."]
     },
     {
         "Title": "Level 5 // Making anew.",
         "question": "New we can use it, lets tell the world.",
-        "answers": ["echo Hello World > anew.txt"],
+        "answers": ["echo Hello World > anew.txt","echo Hello World>anew.txt","echo \"Hello World\" > anew.txt"],
         "hints": ["Hello to you too.", "Text is the way to go.", "its in the title.", "anew, anew, anew...."]
     },
     {
-        "Title": "Level 5 // Making anew.",
-        "question": "New we can use it, lets tell the world.",
-        "answers": ["echo Hello World > anew.txt"],
-        "hints": ["Hello to you too.", "Text is the way to go.", "its in the title.", "anew, anew, anew...."]
+        "Title": "Level 6 // Lets get personal",
+        "question": "Names Flag, -- Flag.",
+        "answers": ["whoami"],
+        "hints": ["r u?", "USER"]
+    },
+    {
+        "Title": "Level 7 // Directory?",
+        "question": "Installing some Minecraft mods from here?",
+        "answers": ["cd %appdata%"],
+        "hints": ["cd","percents? In this economy!"]
+    },
+    {
+        "Title": "Level 8 // Do you know the mechine?",
+        "question": "How many versions can there be?",
+        "answers": ["winver","systeminfo"],
+        "hints": ["Can you win any more?", "du du du duh,"]
+    },
+    {
+        "Title": "Level 9 // Finnish this first?",
+        "question": "Should you shut the system down?",
+        "answers": ["systeminfo | find \"System Boot Time\"","systeminfo | findstr \"Boot Time\""],
+        "hints": ["Would'nt be anything other that system info.", "Can you find Boot Time?"]
+    },
+    {
+        "Title": "Level 10 // Pong",
+        "question": "Is google responding?",
+        "answers": ["ping google.com","ping www.google.com"],
+        "hints": ["table tennis"]
+    },
+    {
+        "Title": "Level 11 // ",
+        "question": "",
+        "answers": [""],
+        "hints": [""]
     }
 ]
