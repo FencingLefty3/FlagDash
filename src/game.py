@@ -3,12 +3,28 @@ import time
 import os
 import subprocess
 from pathlib import Path
-
+First = True
 
 SRCDir = Path(__file__).parent.resolve()
 levels = SRCDir / "levels.json"
 
-def runLevel(Title, question, answers, hints=(), case_sensitive=False, run=False):
+def runLevel(Title, question, answers, hints=(), case_sensitive=False, run=False, check=None):
+    global First
+    
+    if First is False:
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+        logo = r"""
+
+          ▀▀▀▀▀ ▀     ▀▀▀▄  ▀▀▀▀▀
+▀▀▀▀ ▀▀▀▀ ▄ ▀▀  █     ▄ ▀▀█ ▄ ▀▀█
+          █      ▀▄▄▄ ▀   ▀  ▀▄▄▀ 
+            
+    """
+
+        print(f"{logo}") 
+    First = False
+    time.sleep(.5)
     print(f"== {Title} ==")
     print(f"{question}\n")
 
@@ -39,14 +55,16 @@ def runLevel(Title, question, answers, hints=(), case_sensitive=False, run=False
 
         correct = check(responce) if check else norm(responce) in accepted
         if correct:
+            print("Correct!")
+
             for i in range(1, 4):
                 dots = "." * (i % 4)
 
                 print(f"\rLoading{dots.ljust(3)}", end="", flush=True)
                 time.sleep(0.5)
 
-            if not run == False:
-                subprocess.run(answers, shell=True)
+            #if run == True:
+            #    print(subprocess.run(answers, shell=True))
 
             return True
 
@@ -54,7 +72,19 @@ def runLevel(Title, question, answers, hints=(), case_sensitive=False, run=False
 
 def run():
 
-    print("--Flag") 
+
+    logo = r"""
+
+
+          ▀▀▀▀▀ ▀     ▀▀▀▄  ▀▀▀▀▀
+▀▀▀▀ ▀▀▀▀ ▄ ▀▀  █     ▄ ▀▀█ ▄ ▀▀█
+          █      ▀▄▄▄ ▀   ▀  ▀▄▄▀ 
+
+"""
+
+    print(f"{logo}") 
+    time.sleep(.5)
+    print("For a Hint, respond 'hint'.\nTo Close, 'quit' or 'exit'.\n")
 
     with open(levels, "r", encoding="utf-8") as f:
         LEVELS = json.load(f)

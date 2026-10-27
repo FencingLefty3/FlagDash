@@ -1,14 +1,38 @@
 [
     {
-        "title": "1::Directory?",
-        "question": "cd?",
-        "answers": ["cd src"],
-        "hints": ["src"]
+        "Title": "Level 1 // Directory?",
+        "question": "Installing some minercaft mods from here?",
+        "answers": ["cd %appdata%"],
+        "hints": ["cd","run"]
     },
     {
-        "title": "",
-        "question": "",
-        "answers": [],
-        "hints": []
+        "Title": "Level 2 // console.Log",
+        "question": "Can you mark where you are?",
+        "answers": ["pwd"],
+        "hints": ["Print it for me?", "Your directory, please."]
+    },
+    {
+        "Title": "Level 3 // Starting anew",
+        "question": "Lets make a new project.",
+        "answers": ["mkdir new"],
+        "hints": ["folder", "wordplay", "a what project?"]
+    },
+    {
+        "Title": "Level 4 // You know this.",
+        "question": "Making it is no good if we can use it.",
+        "answers": ["cd new"],
+        "hints": ["How did we get here?", "back to basics", "the first one."]
+    },
+    {
+        "Title": "Level 5 // Making anew.",
+        "question": "New we can use it, lets tell the world.",
+        "answers": ["echo Hello World > anew.txt"],
+        "hints": ["Hello to you too.", "Text is the way to go.", "its in the title.", "anew, anew, anew...."]
+    },
+    {
+        "Title": "Level 5 // Making anew.",
+        "question": "New we can use it, lets tell the world.",
+        "answers": ["echo Hello World > anew.txt"],
+        "hints": ["Hello to you too.", "Text is the way to go.", "its in the title.", "anew, anew, anew...."]
     }
 ]
