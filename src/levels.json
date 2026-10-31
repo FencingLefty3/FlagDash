@@ -13,7 +13,7 @@
     },
     {
         "Title": "Level 3 // Starting anew",
-        "question": "Lets make a new project.",
+        "question": "Let's make a new project.",
         "answers": ["mkdir new"],
         "hints": ["folder", "wordplay", "a what project?"]
     },
@@ -25,13 +25,13 @@
     },
     {
         "Title": "Level 5 // Making anew.",
-        "question": "New we can use it, lets tell the world.",
+        "question": "Now we can use it, let's tell the world.",
         "answers": ["echo Hello World > anew.txt","echo Hello World>anew.txt","echo \"Hello World\" > anew.txt"],
-        "hints": ["Hello to you too.", "Text is the way to go.", "its in the title.", "anew, anew, anew...."]
+        "hints": ["Hello to you too.", "Text is the way to go.", "it's in the title.", "anew, anew, anew..."]
     },
     {
         "Title": "Level 6 // Lets get personal",
-        "question": "Names Flag, -- Flag.",
+        "question": "Name's Flag, -- Flag.",
         "answers": ["whoami"],
         "hints": ["r u?", "USER"]
     },
@@ -42,7 +42,7 @@
         "hints": ["cd","percents? In this economy!"]
     },
     {
-        "Title": "Level 8 // Do you know the mechine?",
+        "Title": "Level 8 // Do you know the machine?",
         "question": "How many versions can there be?",
         "answers": ["winver","systeminfo"],
         "hints": ["Can you win any more?", "du du du duh,"]
@@ -51,7 +51,7 @@
         "Title": "Level 9 // Finnish this first?",
         "question": "Should you shut the system down?",
         "answers": ["systeminfo | find \"System Boot Time\"","systeminfo | findstr \"Boot Time\""],
-        "hints": ["Would'nt be anything other that system info.", "Can you find Boot Time?"]
+        "hints": ["Wouldn't be anything other than system info.", "Can you find Boot Time?"]
     },
     {
         "Title": "Level 10 // Pong",
@@ -75,17 +75,17 @@
         "Title": "Level 13 // From sea to shining ̷s̷e̷a mountain.",
         "question": "Is there a wiki page for this hidden star?",
         "answers": ["PNG",".PNG"],
-        "hints": ["your shine like the star","What file does it make?","Initials?","Hey, Pap(u)a!"]
+        "hints": ["you shine like the star","What file does it make?","Initials?","Hey, Pap(u)a!"]
     },
     {
-        "Title": "Level 14 // Thats a bit awkward.",
-        "question": "I won't come to you house, will dan?",
+        "Title": "Level 14 // That's a bit awkward.",
+        "question": "I won't come to your house, will Dan?",
         "answers": ["minecon 2015"],
         "hints": ["Very CONvincing","Full name please"]
     },
     {
         "Title": "Level 15 // Odd Flag.",
-        "question": "Need to govern those mountians.",
+        "question": "Need to govern those mountains.",
         "answers": ["Nepal"],
         "hints": [""]
     },
@@ -111,19 +111,19 @@
         "Title": "Level 19 // WhatAmI?",
         "question": "What am I going for? (CXRC+X7 Stavelot, Belgium)",
         "answers": ["Belgian Grand Prix","Belgian GP"],
-        "hints": ["Car go Vroom", "Formulia Uno","event name"]
+        "hints": ["Car go Vroom", "Formula Uno","event name"]
     },
     {
         "Title": "Level 20 // Float your Goat?",
         "question": "First draft of Cape Liberty.",
         "answers": ["28","8.5"],
-        "hints": ["google maps/earth", "satalite coverage","10/16/25"]
+        "hints": ["google maps/earth", "satellite coverage","10/16/25"]
     },
     {
         "Title": "Level 21A // Document This",
         "question": "Your mission, is to find the code.",
         "answers": ["484F5720414C495645"],
-        "hints": ["When would I document it?", "Is the a new file?","10/16/25"],
+        "hints": ["When would I document it?", "Is there a new file?","10/16/25"],
         "setup": ["cd ([Environment]::GetFolderPath('MyDocuments')); echo 484F5720414C495645 > riddle.txt"]
     },
     {
@@ -136,7 +136,7 @@
     },
     {
         "Title": "Level 22 // Gold In Space",
-        "question": "What Java is on the reccord?",
+        "question": "What Java is on the record?",
         "answers": ["Kinds of Flowers","Robert Brown"],
         "hints": ["On this Voyage we go.", "Music to my ears","NASA"]
     },
@@ -153,7 +153,7 @@
         "hints": ["For computers."]
     },
     {
-        "Title": "Level 25 // Men's 200m Breaststrone.",
+        "Title": "Level 25 // Men's 200m Breaststroke.",
         "question": "World records in 16'",
         "answers": ["Marco Koch"],
         "hints": ["Not FIFA, but.", "Berlin."]
@@ -171,10 +171,10 @@
         "hints": ["___Store.com", "Bag for Commuting","A Tech Sack too."]
     },
     {
-        "Title": "Level 28 // Cape? Third times the charm.",
+        "Title": "Level 28 // Cape? Third time's the charm.",
         "question": "A bend in the reeds.",
         "answers": ["Cape Canaveral", "Canaveral", "Cape Kennedy", "Cape Canaveral Space Force Station"],
-        "hints": ["Explosions, for science!","Thats alot of Gs","What goes up must come down."]
+        "hints": ["Explosions, for science!","That's a lot of Gs","What goes up must come down."]
     },
     {
         "Title": "Level 29 // Round and Round we go.",
