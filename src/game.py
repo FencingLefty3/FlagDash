@@ -1,9 +1,11 @@
 import json
+import shutil
 import time
 import os
 import subprocess
 from pathlib import Path
 First = True
+powershell_path = shutil.which("powershell.exe")
 
 SRCDir = Path(__file__).parent.resolve()
 levels = SRCDir / "levels.json"
@@ -29,7 +31,9 @@ def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False,
     print(f"{question}\n")
 
     if setup:
-        subprocess.run(setup, shell=True)
+        for s in setup:
+            subprocess.run(s, shell=True, executable=powershell_path)
+            print(s)
 
     norm = (lambda s: s.strip()) if case_sensitive else (lambda s: s.strip().lower())
     accepted = {norm(a) for a in answers}
@@ -63,6 +67,8 @@ def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False,
             print("For a Hint, respond 'hint'.\nTo reset the question,'reset' For these keywords, 'help'\nTo Close, 'quit' or 'exit'.\n")
             continue
         if cmd in ("quit", "exit"):
+            print("Goodbye!")
+            time.sleep(.5)
             return False
         if cmd == "hint":
             if hintsUsed < len(hints):
@@ -114,9 +120,6 @@ def run():
         if not runLevel(**level):
             print("Exiting...")
             return
-    print("You have beat the game!")
-           
-           
-           
+    print("You have beat the game!")   
 
 run()

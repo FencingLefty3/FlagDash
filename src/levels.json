@@ -60,9 +60,132 @@
         "hints": ["table tennis"]
     },
     {
-        "Title": "Level 11 // ",
-        "question": "",
-        "answers": [""],
+        "Title": "Level 11 // Radio Check, Radio Check.",
+        "question": "Loud And Clear, clear...",
+        "answers": ["Echo Loud and clear","Echo \"Loud and clear\""],
+        "hints": ["Did you repeat yourself?","You don't need to 10-9.","Is there an echo?"]
+    },
+    {
+        "Title": "Level 12 // I won't forget.",
+        "question": "Quick, write this down!",
+        "answers": ["notepad","notepad.exe","start notepad"],
+        "hints": ["Where would I write it?","You've already got it.","Just write down the text for your editor."]
+    },
+    {
+        "Title": "Level 13 // From sea to shining ̷s̷e̷a mountain.",
+        "question": "Is there a wiki page for this hidden star?",
+        "answers": ["PNG",".PNG"],
+        "hints": ["your shine like the star","What file does it make?","Initials?","Hey, Pap(u)a!"]
+    },
+    {
+        "Title": "Level 14 // Thats a bit awkward.",
+        "question": "I won't come to you house, will dan?",
+        "answers": ["minecon 2015"],
+        "hints": ["Very CONvincing","Full name please"]
+    },
+    {
+        "Title": "Level 15 // Odd Flag.",
+        "question": "Need to govern those mountians.",
+        "answers": ["Nepal"],
         "hints": [""]
+    },
+    {
+        "Title": "Level 16 // But made in china.",
+        "question": "Talk'n bout apples pods.",
+        "answers": ["Designed in California"],
+        "hints": ["Cast it?","Relay","Upgrade"]
+    },
+    {
+        "Title": "Level 17 // Easthamlet.",
+        "question": "Have fun at R2PH+X2...",
+        "answers": ["Cape Cod National Seashore", "Salt Pond Visitor Center","Cape Cod National Seashore Salt Pond Visitor Center"],
+        "hints": ["Plus the code.","Picture it Eastham,"]
+    },
+    {
+        "Title": "Level 18 // Brewing Altitude",
+        "question": "__ runs on dunkin",
+        "answers": ["Jetblue","Jetblue runs on dunkin"],
+        "hints": ["KBOS", "Blu"]
+    },
+    {
+        "Title": "Level 19 // WhatAmI?",
+        "question": "What am I going for? (CXRC+X7 Stavelot, Belgium)",
+        "answers": ["Belgian Grand Prix","Belgian GP"],
+        "hints": ["Car go Vroom", "Formulia Uno","event name"]
+    },
+    {
+        "Title": "Level 20 // Float your Goat?",
+        "question": "First draft of Cape Liberty.",
+        "answers": ["28","8.5"],
+        "hints": ["google maps/earth", "satalite coverage","10/16/25"]
+    },
+    {
+        "Title": "Level 21A // Document This",
+        "question": "Your mission, is to find the code.",
+        "answers": ["484F5720414C495645"],
+        "hints": ["When would I document it?", "Is the a new file?","10/16/25"],
+        "setup": ["cd ([Environment]::GetFolderPath('MyDocuments')); echo 484F5720414C495645 > riddle.txt"]
+    },
+    {
+        "Title": "Level 21B // Space Pirates!",
+        "question": "Where am I from?",
+        "answers": ["The Martian"],
+        "hints": ["Decode the string.", "Colors, in HEX","Book, and Film."],
+        "setup": ["cd ([Environment]::GetFolderPath('MyDocuments')); del riddle.txt"]
+        
+    },
+    {
+        "Title": "Level 22 // Gold In Space",
+        "question": "What Java is on the reccord?",
+        "answers": ["Kinds of Flowers","Robert Brown"],
+        "hints": ["On this Voyage we go.", "Music to my ears","NASA"]
+    },
+    {
+        "Title": "Level 23 // The next Alexandria",
+        "question": "Everything is here.",
+        "answers": ["The British Library","British Library"],
+        "hints": ["Books? Books!", "Publication and all."]
+    },
+    {
+        "Title": "Level 24 // DATETIME",
+        "question": "When does time start?",
+        "answers": ["1 January 1970","1/1/1970","January 1, 1970"],
+        "hints": ["For computers."]
+    },
+    {
+        "Title": "Level 25 // Men's 200m Breaststrone.",
+        "question": "World records in 16'",
+        "answers": ["Marco Koch"],
+        "hints": ["Not FIFA, but.", "Berlin."]
+    },
+    {
+        "Title": "Level 26 // Monaco, but for Monaco.",
+        "question": "Your name, please.",
+        "answers": ["Grand Prix de Monaco Historique", "Monaco Historic Grand Prix"],
+        "hints": ["Old and rich.", "It's been 20 years!","The real one is in 2 weeks."]
+    },
+    {
+        "Title": "Level 27 // A segue, to our...",
+        "question": "...British bag?",
+        "answers": ["British Millerain"],
+        "hints": ["___Store.com", "Bag for Commuting","A Tech Sack too."]
+    },
+    {
+        "Title": "Level 28 // Cape? Third times the charm.",
+        "question": "A bend in the reeds.",
+        "answers": ["Cape Canaveral", "Canaveral", "Cape Kennedy", "Cape Canaveral Space Force Station"],
+        "hints": ["Explosions, for science!","Thats alot of Gs","What goes up must come down."]
+    },
+    {
+        "Title": "Level 29 // Round and Round we go.",
+        "question": "To Infinity and, Park.",
+        "answers": ["Apple Park", "1 Infinite Loop"],
+        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+    },
+    {
+        "Title": "Level 30 // Set Sail",
+        "question": "cjNneDJ1eA==",
+        "answers": ["sydney opera house", "the sydney opera house", "bennelong point"],
+        "hints": ["geohash, is it?"]
     }
 ]
