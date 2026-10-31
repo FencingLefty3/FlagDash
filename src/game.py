@@ -121,5 +121,3 @@ def run():
             print("Exiting...")
             return
     print("You have beat the game!")   
-
-run()

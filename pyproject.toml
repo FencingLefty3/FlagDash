@@ -1,3 +1,13 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
 [project]
-name = "FlagDash"
-version = "0.1"
+name = "DashFlag"
+version = "2026.0.1"
+description = "A Terminal Puzzle Game"
+readme = "README.md"
+requires-python = ">=3.9"
+
+[project.scripts]
+DashFlag = "DashFlag.cli:main"
