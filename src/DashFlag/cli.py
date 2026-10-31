@@ -1,4 +1,4 @@
 from . import game
 
 def main():
-    game.run()
+    game.main()
