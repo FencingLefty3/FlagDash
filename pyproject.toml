@@ -9,5 +9,8 @@ description = "A Terminal Puzzle Game"
 readme = "README.md"
 requires-python = ">=3.9"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/dashflag"]
+
 [project.scripts]
 DashFlag = "DashFlag.cli:main"
