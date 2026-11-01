@@ -14,12 +14,12 @@ powershell_path = shutil.which("powershell.exe")
 SRCDir = Path(__file__).parent.resolve()
 levels = SRCDir / "levels.json"
 
-def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False, run=False, check=None, stats=None):
+def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False, run=False, check=None, stats=None, n=0):
     global First
 
     for cmd in (setup or []):
         subprocess.run(["powershell", "-NoProfile", "-Command", cmd],
-                       capture_output=True)
+                       capture_output=True) 
 
     if First is False:
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -46,6 +46,15 @@ def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False,
     norm = (lambda s: s.strip()) if case_sensitive else (lambda s: s.strip().lower())
     accepted = {norm(a) for a in answers}
     hintsUsed = 0
+    wrong = 0
+    start = time.monotonic()
+
+    def finish(solved):
+        if stats is not None:
+            stats_mod.record_level(stats, n, Title, wrong, hintsUsed, time.monotonic() - start, solved)
+            stats_mod.save(stats)
+        return solved
+
 
     while True: 
         try:
@@ -101,8 +110,8 @@ def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False,
             #if run == True:
             #    print(subprocess.run(answers, shell=True))
 
-            return True
-
+            return finish(True)
+        wrong += 1
         print("Sorry, try again. \n")
 
 def run(save):
@@ -125,6 +134,8 @@ def run(save):
 
     with open(levels, "r", encoding="utf-8") as f:
         LEVELS = json.load(f)
+        stats = stats_mod.load()
+        stats_mod.start_session(stats)
 
     currentLevel = save["level"]
 
@@ -134,9 +145,11 @@ def run(save):
 
 
     for i in range(currentLevel, len(LEVELS)):
-        if not runLevel(**LEVELS[i]):
+        if not runLevel(n=i + 1, stats=stats, **LEVELS[i]):
             print("Exiting...")
             return
+
+        
 
         save_game(save["name"], i + 1, i + 1 >= len(LEVELS))
         
@@ -311,6 +324,12 @@ def load():
         if responce == "delete":
             delete()
             return None
+
+        if responce == "stats":
+            stats = stats_mod.load()
+            total_levels = len(json.load(open(levels, "r", encoding="utf-8")))
+            stats_mod.show(stats, total_levels)
+            return None
         
         print("Invalid.")
 
@@ -340,7 +359,7 @@ def main():
     else:
 
         try:
-            command = input("Ḻoad(L) or ṉew (L/n)? ")
+            command = input("Ḻoad(L) or ṉew (L/n)? ").lower()
         except (EOFError, KeyboardInterrupt):
             print()
             return(False)
