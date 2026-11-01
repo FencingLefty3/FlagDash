@@ -336,19 +336,13 @@ def main():
             print()
             return(False)
 
-        if command == "":
-            save = load()
-            
-            if save:
-                run(save)
-
-        elif command == "load":
+        if command == "l" or command == "load" or command == "":
             save = load()
 
             if save:
                 run(save)
 
-        elif command == "new":
+        elif command == "n" or command == "new":
             new_game()
 
         else:
