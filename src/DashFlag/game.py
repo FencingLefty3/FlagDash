@@ -306,7 +306,7 @@ def load():
 
         print(f"{i} | {save['name']} - {status}")
 
-    print("\n Enter save number to load, 'delete' or 'exit'.")
+    print("\n Enter save number to load, 'stats', 'delete' or 'exit'.")
 
     while True:
         try:
