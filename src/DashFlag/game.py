@@ -311,26 +311,45 @@ def load():
 
 def main():
 
-    try:
-        command = input("Ḻoad(L) or ṉew (L/n)? ")
-    except (EOFError, KeyboardInterrupt):
-        print()
-        return(False)
+    command = sys.argv[1].lower() if len(sys.argv) > 1 else ""
 
-    if command == "":
-        save = load()
-        
-        if save:
-            run(save)
+    if command:
+        if command == "load":
+            save = load()
 
-    elif command == "load":
-        save = load()
+            if save:
+                run(save)
 
-        if save:
-            run(save)
+        elif command == "new":
+            new_game()
 
-    elif command == "new":
-        new_game()
+        elif command == "delete":
+            delete()
 
+        else:
+            print("Invalid.")
     else:
-        print("Invalid.")
+
+        try:
+            command = input("Ḻoad(L) or ṉew (L/n)? ")
+        except (EOFError, KeyboardInterrupt):
+            print()
+            return(False)
+
+        if command == "":
+            save = load()
+            
+            if save:
+                run(save)
+
+        elif command == "load":
+            save = load()
+
+            if save:
+                run(save)
+
+        elif command == "new":
+            new_game()
+
+        else:
+            print("Invalid.")
