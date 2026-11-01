@@ -32,4 +32,4 @@ Run `DashFlag` in terminal. > `Load` Game > `Delete` > Enter Save `Number`> Conf
 
 ### Closing
 
-Games save after every level. Current level is displayed next to save number in load game. (`Exit` From most menus. `Ctrl + C` always exits, but may not save.)
+Games save after every level. Current level is displayed next to save number in load game. (`Exit` From most menus. `Ctrl + C` always exits, but may not shut down safely.)
