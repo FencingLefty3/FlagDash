@@ -212,6 +212,53 @@ def get_saves():
             continue
     return sorted(saves, key=lambda s: s.get("last_played", ""), reverse=True)
 
+def delete():
+    saves = get_saves()
+
+    print("== Delete Saves==\n")
+
+    if not saves:
+        print("No saves found.")
+        return
+    for i, save in enumerate(saves, 1):
+        status = "Completed" if save["completed"] else f"Level {save['level'] + 1}"
+        print(f"{i} | {save['name']} - {status}")
+
+    print("\n Enter save number to delete, or 'exit'.")
+
+    while True:
+        try:
+            responce = input(">> ").strip().lower()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            return
+        if responce == "exit":
+            return
+        if not responce.isdigit() or not 1 <= int(responce) <= len(saves):
+            print("Invalid.")
+            continue
+
+        save = saves[int(responce) - 1]
+
+        try:
+            confirm = input(
+                f"Delete save '{save['name']}'? This cannot be undone. (y/N): "
+            ).strip().lower()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            return
+        if confirm == "y":
+            try:
+                save["path"].unlink()
+                print(f"Save '{save['name']}' deleted.")
+            except OSError as error:
+                print(f"Failed to delete save '{save['name']}'. {error}")
+            return
+        elif confirm == "n" or confirm == "":
+            print("Deletion cancelled.")
+            return
+    
+
 def load():
     saves = get_saves()
 
@@ -241,7 +288,7 @@ def load():
 
         print(f"{i} | {save['name']} - {status}")
 
-    print("\n Enter save number to load or 'exit'.")
+    print("\n Enter save number to load, 'delete' or 'exit'.")
 
     while True:
         try:
@@ -256,7 +303,10 @@ def load():
         if responce.isdigit() and 1<= int(responce) <= len(saves):
             return saves[int(responce) - 1]
 
-
+        if responce == "delete":
+            delete()
+            return None
+        
         print("Invalid.")
 
 def main():
