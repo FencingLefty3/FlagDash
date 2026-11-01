@@ -5,6 +5,7 @@ import os
 import sys
 import re
 import subprocess
+from . import stats as stats_mod
 from datetime import datetime
 from pathlib import Path
 First = True
@@ -13,9 +14,13 @@ powershell_path = shutil.which("powershell.exe")
 SRCDir = Path(__file__).parent.resolve()
 levels = SRCDir / "levels.json"
 
-def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False, run=False, check=None):
+def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False, run=False, check=None, stats=None):
     global First
-    
+
+    for cmd in (setup or []):
+        subprocess.run(["powershell", "-NoProfile", "-Command", cmd],
+                       capture_output=True)
+
     if First is False:
         os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -326,6 +331,10 @@ def main():
         elif command == "delete":
             delete()
 
+        elif command == "stats":
+            stats = stats_mod.load()
+            total_levels = len(json.load(open(levels, "r", encoding="utf-8")))
+            stats_mod.show(stats, total_levels)
         else:
             print("Invalid.")
     else:
