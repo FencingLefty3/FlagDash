@@ -30,7 +30,7 @@
         "hints": ["Hello to you too.", "Text is the way to go.", "it's in the title.", "anew, anew, anew..."]
     },
     {
-        "Title": "Level 6 // Lets get personal",
+        "Title": "Level 6 // Let's get personal",
         "question": "Name's Flag, -- Flag.",
         "answers": ["whoami"],
         "hints": ["r u?", "USER"]
@@ -87,7 +87,7 @@
         "Title": "Level 15 // Odd Flag.",
         "question": "Need to govern those mountains.",
         "answers": ["Nepal"],
-        "hints": [""]
+        "hints": ["Try to climb."]
     },
     {
         "Title": "Level 16 // But made in china.",
@@ -183,64 +183,79 @@
         "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
     },
     {
-        "Title": "Level 30 // ",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 30 // Not gold.",
+        "question": "-gate, a scandal.",
+        "answers": ["Golden Gate Bridge"],
+        "hints": ["Title + Question"]
     },
     {
-        "Title": "Level 31 //",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 31A // Flashing Green.",
+        "question": "Where do the Green Lights Flash?",
+        "answers": ["BC", "British Columbia", "Vancouver"],
+        "hints": ["Expensive Rent next to Coal"]
     },
     {
-        "Title": "Level 32 // ",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 31B // #Van",
+        "question": "9 o'clock shots.",
+        "answers": ["Stanley Park"],
+        "hints": ["marvel camio", "cannon"]
     },
     {
-        "Title": "Level 33 // ",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 32 // Island Income",
+        "question": "Expensive top level tourist store.",
+        "answers": [".ai", "ai", "Anguilla"],
+        "hints": ["not in my domain", "caribean", "centre de données"]
     },
     {
-        "Title": "Level 34 // ",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 33 // Not one Game",
+        "question": "Select player one?",
+        "answers": ["Roblox"],
+        "hints": ["What game has games?", "The OG"]
     },
     {
-        "Title": "Level 35 // ",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 34 // Break the Curse?",
+        "question": "Modify it.",
+        "answers": ["CurseForge"],
+        "hints": ["Forge it.", "overwolf"]
     },
     {
-        "Title": "Level 36 // ",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 35 // looks Like,",
+        "question": "google it.",
+        "answers": [
+            "Invoke-WebRequest \"https://google.com\"",
+            "Invoke-WebRequest https://google.com",
+            "Invoke-WebRequest -Uri https://google.com",
+            "Invoke-WebRequest -Uri \"https://google.com\"",
+            "iwr https://google.com",
+            "iwr google.com",
+            "curl https://google.com",
+            "curl google.com"
+        ],
+        "hints": ["google.com", "powershell"]
     },
     {
-        "Title": "Level 37 // ",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 36 // Point Away",
+        "question": "Point where?",
+        "answers": ["Nemo", "Point Nemo"],
+        "hints": ["Not a Fish"]
     },
     {
-        "Title": "Level 38 // ",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 37 // Mathematics",
+        "question": "144, 233, 610",
+        "answers": ["377"],
+        "hints": ["Don't fib.","skipping"]
     },
     {
-        "Title": "Level 39 // ",
-        "question": "To Infinity and, Park.",
-        "answers": ["Apple Park", "1 Infinite Loop"],
-        "hints": ["Rainbows and sunshine.","'Hair Force One clear for land.'","iBuilding"]
+        "Title": "Level 38 // Decode, Please.",
+        "question": "Show your work.",
+        "answers": ["certutil -decode", "certutil"],
+        "hints": ["Just the work.", "base of 4 carrot 3"]
+    },
+    {
+        "Title": "Level 39 // Rescue Mission",
+        "question": "Five",
+        "answers": ["BRM5","BRM","Blackhawk Rescue Mission 5","Blackhawk Rescue Mission"],
+        "hints": ["Doesn't look like roblox", "helicopter", "platinum"]
     },
     {
         "Title": "Level 40 // Set Sail",
