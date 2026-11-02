@@ -6,6 +6,7 @@ import sys
 import re
 import subprocess
 from . import stats as stats_mod
+from . import themes
 from datetime import datetime
 from pathlib import Path
 First = True
@@ -13,6 +14,16 @@ powershell_path = shutil.which("powershell.exe")
 
 SRCDir = Path(__file__).parent.resolve()
 levels = SRCDir / "levels.json"
+
+logo = r"""
+
+    
+          ▀▀▀▀▀ ▀     ▀▀▀▄  ▀▀▀▀▀
+▀▀▀▀ ▀▀▀▀ ▄ ▀▀  █     ▄ ▀▀█ ▄ ▀▀█
+          █      ▀▄▄▄ ▀   ▀  ▀▄▄▀    
+
+"""
+HELP = "For a Hint, respond 'hint'.\nTo reset the question,'reset' For these keywords, 'help'\nTo Close, 'quit' or 'exit'.\n"
 
 def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False, run=False, check=None, stats=None, n=0):
     global First
@@ -24,24 +35,15 @@ def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False,
     if First is False:
         os.system('cls' if os.name == 'nt' else 'clear')
 
-        logo = r"""
-
-          ▀▀▀▀▀ ▀     ▀▀▀▄  ▀▀▀▀▀
-▀▀▀▀ ▀▀▀▀ ▄ ▀▀  █     ▄ ▀▀█ ▄ ▀▀█
-          █      ▀▄▄▄ ▀   ▀  ▀▄▄▀ 
-            
-    """
-
-        print(f"{logo}") 
+        print(themes.secondary(logo)) 
     First = False
     time.sleep(.5)
-    print(f"== {Title} ==")
-    print(f"{question}\n")
+    print(themes.secondary(f"== {Title} =="))
+    print(themes.primary(f"{question}\n"))
 
     if setup:
         for s in setup:
             subprocess.run(s, shell=True, executable=powershell_path)
-            print(s)
 
     norm = (lambda s: s.strip()) if case_sensitive else (lambda s: s.strip().lower())
     accepted = {norm(a) for a in answers}
@@ -67,21 +69,14 @@ def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False,
         if cmd == "clear":
             os.system('cls' if os.name == 'nt' else 'clear')
             
-            logo = r"""
             
-          ▀▀▀▀▀ ▀     ▀▀▀▄  ▀▀▀▀▀
-▀▀▀▀ ▀▀▀▀ ▄ ▀▀  █     ▄ ▀▀█ ▄ ▀▀█
-          █      ▀▄▄▄ ▀   ▀  ▀▄▄▀ 
-                        
-            """
-            
-            print(f"{logo}") 
+            print(themes.secondary(logo)) 
             time.sleep(.5)
             print(f"== {Title} ==")
             print(f"{question}\n")
             continue
         if cmd == "help":
-            print("For a Hint, respond 'hint'.\nTo reset the question,'reset' For these keywords, 'help'\nTo Close, 'quit' or 'exit'.\n")
+            print(themes.info(HELP))
             continue
         if cmd in ("quit", "exit"):
             print("Goodbye!")
@@ -89,17 +84,17 @@ def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False,
             return False
         if cmd == "hint":
             if hintsUsed < len(hints):
-                print(f"Hint {hintsUsed +1}: {hints[hintsUsed]}")
+                print(themes.info(f"Hint {hintsUsed + 1}: {hints[hintsUsed]}"))
                 hintsUsed += 1
             else:
-                print("Final hint given" if hints else "No hints available.")
+                print(themes.info("Final hint given" if hints else "No hints available."))
             continue   
         if not responce.strip():
             continue
 
         correct = check(responce) if check else norm(responce) in accepted
         if correct:
-            print("Correct!")
+            print(themes.success("Correct!"))
 
             for i in range(1, 4):
                 dots = "." * (i % 4)
@@ -112,25 +107,17 @@ def runLevel(Title, question, answers, hints=(), setup=(), case_sensitive=False,
 
             return finish(True)
         wrong += 1
-        print("Sorry, try again. \n")
+        print(themes.error("Sorry, try again. \n"))
 
 def run(save):
     global First
 
     os.system('cls' if os.name == 'nt' else 'clear')
 
-    logo = r"""
 
-
-          ▀▀▀▀▀ ▀     ▀▀▀▄  ▀▀▀▀▀
-▀▀▀▀ ▀▀▀▀ ▄ ▀▀  █     ▄ ▀▀█ ▄ ▀▀█
-          █      ▀▄▄▄ ▀   ▀  ▀▄▄▀ 
-
-"""
-
-    print(f"{logo}") 
+    print(themes.secondary(logo)) 
     time.sleep(.5)
-    print("For a Hint, respond 'hint'.\nTo reset the question,'reset' For these keywords, 'help'\nTo Close, 'quit' or 'exit'.\n")
+    print(themes.info(HELP))
 
     with open(levels, "r", encoding="utf-8") as f:
         LEVELS = json.load(f)
@@ -276,22 +263,31 @@ def delete():
             print("Deletion cancelled.")
             return
     
+def theme_cmd(args):
+    arg = args[0].lower() if args else ""
+    if arg == "path":
+        print(themes.SETTINGS)
+    elif arg in themes.PRESETS:
+        themes.apply_preset(arg)
+        print(f"Theme set to {arg}. Edit {themes.SETTINGS} to customise.")
+    else:
+        print("Themes: " + ", ".join(themes.PRESETS))
+        print("Use: DashFlag settings <name>   or   DashFlag settings path")
+
+
+def show_stats():
+    with open(levels, "r", encoding="utf-8") as f:
+        total_levels = len(json.load(f))
+    stats_mod.show(stats_mod.load(), total_levels)
+
 
 def load():
     saves = get_saves()
 
     os.system('cls' if os.name == 'nt' else 'clear')
-    
-    logo = r"""
 
     
-          ▀▀▀▀▀ ▀     ▀▀▀▄  ▀▀▀▀▀
-▀▀▀▀ ▀▀▀▀ ▄ ▀▀  █     ▄ ▀▀█ ▄ ▀▀█
-          █      ▀▄▄▄ ▀   ▀  ▀▄▄▀    
-
-    """
-    
-    print(f"{logo}") 
+    print(themes.secondary(logo)) 
     time.sleep(.5)
     print("== Load Save ==\n")
 
@@ -306,7 +302,7 @@ def load():
 
         print(f"{i} | {save['name']} - {status}")
 
-    print("\n Enter save number to load, 'stats', 'delete' or 'exit'.")
+    print("\n Enter save number to load, 'stats', 'settings', 'delete' or 'exit'.")
 
     while True:
         try:
@@ -325,15 +321,20 @@ def load():
             delete()
             return None
 
+        if responce == "settings":
+            themes.select_theme()
+            continue
+
         if responce == "stats":
-            stats = stats_mod.load()
-            total_levels = len(json.load(open(levels, "r", encoding="utf-8")))
-            stats_mod.show(stats, total_levels)
+            show_stats()
             return None
         
         print("Invalid.")
 
 def main():
+
+    for problem in themes.load():
+        print(problem)
 
     command = sys.argv[1].lower() if len(sys.argv) > 1 else ""
 
@@ -354,6 +355,9 @@ def main():
             stats = stats_mod.load()
             total_levels = len(json.load(open(levels, "r", encoding="utf-8")))
             stats_mod.show(stats, total_levels)
+
+        elif command == "settings":
+            themes.select_theme()
         else:
             print("Invalid.")
     else:
