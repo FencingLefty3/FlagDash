@@ -7,6 +7,9 @@ Terminal Based Puzzle Game with 40+ levels of terminal and OSINT questions.
 ▀▀▀▀ ▀▀▀▀ ▄ ▀▀  █     ▄ ▀▀█ ▄ ▀▀█
           █      ▀▄▄▄ ▀   ▀  ▀▄▄▀    
 ```
+
+![screenshot](flag.png)
+
 ## How to Installing
 
 Install from: `pip install dashflag` command.
