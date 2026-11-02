@@ -30,6 +30,15 @@ Run `DashFlag` in terminal. > `Load` Game > Enter Save `Number`> Play. (Or `Dash
 
 Run `DashFlag` in terminal. > `Load` Game > `Delete` > Enter Save `Number`> Confirm. (Or `DashFlag delete`)
 
+### Stats
+
+Run `DashFlag` in terminal. > `Load` Game > `stats` > view. (Or `DashFlag stats`)
+
+## themes
+
+Run `DashFlag` in terminal. > `Load` Game > `settings` > Enter Theme `Number` (Or `DashFlag settings`)
+
+
 ### Closing
 
 Games save after every level. Current level is displayed next to save number in load game. (`Exit` From most menus. `Ctrl + C` always exits, but may not shut down safely.)
