@@ -11,7 +11,7 @@ PRESETS = {
                 "errorColor": "bright_red", "successColor": "bright_green", "infoColor": "green"},
     "retro":   {"PrimaryColor": "bright_magenta", "SecondaryColor": "bright_blue",
                 "errorColor": "bright_red", "successColor": "bright_green", "infoColor": "bright_yellow"},
-    "sepia":   {"PrimaryColor": "139", "SecondaryColor": "101",
+    "sepia":   {"PrimaryColor": "f4ecd8", "SecondaryColor": "b8860b",
                 "errorColor": "124", "successColor": "142", "infoColor": "109"},
 }
 

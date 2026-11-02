@@ -6,7 +6,7 @@ import sys
 import re
 import subprocess
 from . import stats as stats_mod
-from . import themes
+from . import settings as themes
 from datetime import datetime
 from pathlib import Path
 First = True
