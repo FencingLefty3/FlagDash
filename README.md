@@ -1,6 +1,6 @@
 # DashFlag
 
-Terminal Based Puzzle Game.
+Terminal Based Puzzle Game with 40+ levels of terminal and OSINT questions.
 ```
     
           ▀▀▀▀▀ ▀     ▀▀▀▄  ▀▀▀▀▀
